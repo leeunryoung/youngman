@@ -5,7 +5,9 @@ from langchain.chains import RetrievalQA
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 import os
-os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY" # 실제 API키로 대체
+from dotenv import load_dotenv
+
+load_dotenv()
 #문서불러오기->쪼개기->임베딩생성-> Chroma에 저장
 #문서 로딩
 loader=TextLoader("sample.txt", encoding="usf-8")
