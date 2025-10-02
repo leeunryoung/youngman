@@ -7,6 +7,10 @@ from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 
 import os
+from dotenv import load_dotenv
+
+# .env 파일에서 환경 변수 로드
+load_dotenv()
 
 def load_policy_documents():
     # 정책 문서 폴더
