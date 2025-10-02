@@ -1,0 +1,41 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>청년정책 챗봇</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>청년정책 챗봇 🤖</h1>
+        <form id="chat-form">
+            <input type="text" id="question" placeholder="질문을 입력하세요..." required>
+            <button type="submit">질문하기</button>
+        </form>
+        <div id="answer"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById("chat-form");
+        const answerDiv = document.getElementById("answer");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const question = document.getElementById("question").value;
+            answerDiv.innerHTML = "<em>답변을 불러오는 중...</em>";
+
+            const response = await fetch("http://localhost:8000/ask", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ question })
+            });
+
+            const data = await response.json();
+            answerDiv.innerHTML = data.answer || "오류 발생: " + data.error;
+        });
+    </script>
+</body>
+</html>

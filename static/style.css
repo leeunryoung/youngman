@@ -1,0 +1,25 @@
+/* static/style.css */
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    padding: 2rem;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+input {
+    width: 75%;
+    padding: 0.5rem;
+}
+button {
+    padding: 0.5rem 1rem;
+}
+#answer {
+    margin-top: 1rem;
+    white-space: pre-wrap;
+}
